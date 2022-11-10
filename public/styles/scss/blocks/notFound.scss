@@ -1,0 +1,37 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  min-height: calc(100vh - 47px);
+
+  img {
+    height: 20rem;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+  }
+
+  &__btn {
+    text-align: center;
+    width: 18rem;
+    background-color: $gasesNobles;
+    color: #fff;
+    outline: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.275rem 0.313rem;
+    border-radius: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: transform 0.1s linear;
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}

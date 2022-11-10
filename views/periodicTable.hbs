@@ -1,0 +1,103 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Roniell Pérez" />
+    <link rel="shortcut icon" href="./assets/images/PageIcon.png" />
+    <link rel="stylesheet" href="./styles/css/styles.css" />
+    <title>Tabla Periódica</title>
+  </head>
+  <body>
+    <main class="home">
+      <h1 class="home__title">Tabla Periódica
+        <small>de los</small>
+        Elementos Químicos</h1>
+      <section class="home__container">
+        <article class="home__container__tableA">
+
+          {{! Loop for an array without lanthanides and actinides }}
+          {{#each (excludeLatanidosActinidos elements) as |element|}}
+
+            {{! If the current element is missing, an empty span is added  }}
+            {{#if element.missing}}
+              <span class="empty-element"></span>
+
+              {{! If it's not, it's added with the following structure  }}
+            {{else}}
+              <span class={{element.group}}>
+                <small>{{element.number}}</small>
+                <strong>{{element.symbol}}</strong>
+                <small>{{element.name}}</small>
+              </span>
+            {{/if}}
+
+            {{! If the loop index is a breakpoint, a break flex div is added }}
+            {{#if (breakCol @index)}}
+              <div class="break"></div>
+            {{/if}}
+
+          {{/each}}
+        </article>
+        <article class="home__container__tableB">
+
+          {{! Loop for an array only with lanthanides and actinides }}
+          {{#each (groupLatanidosActinidos elements) as |element|}}
+
+            {{! If the current element is missing, an empty span is added  }}
+            {{#if element.missing}}
+              <span class="empty-element"></span>
+
+              {{! If it's not, it's added with the following structure  }}
+            {{else}}
+              <span class={{element.group}}>
+                <small>{{element.number}}</small>
+                <strong>{{element.symbol}}</strong>
+                <small>{{element.name}}</small>
+              </span>
+            {{/if}}
+
+            {{! If the loop index is equal to 14, a break flex div is added }}
+            {{#if (equal @index 14)}}
+              <div class="break"></div>
+            {{/if}}
+
+          {{/each}}
+        </article>
+        <article class="home__container__legend">
+          <div class="metales">
+            <h5>Metales</h5>
+            <div class="flex-container">
+              <span class="alcalinos"><strong>Alcalinos</strong></span>
+              <span class="alcalinoterreos">
+                <strong>Alcalinotérreos</strong>
+              </span>
+              <span class="metalesTransicion">
+                <strong>Metales de Transición / Bloque D</strong>
+              </span>
+              <div class="row-legends">
+                <span class="lantanidos"><strong>Lantánidos</strong></span>
+                <span class="actinidos"><strong>Actínidos</strong></span>
+              </div>
+              <span class="metales"><strong>Otros Metales </strong></span>
+            </div>
+          </div>
+          <span class="metaloides metaloides">
+            <strong>Metaloides</strong>
+          </span>
+          <div class="no-metales">
+            <h5>No Metales</h5>
+            <div class="flex-container">
+              <span class="noMetales"><strong>Otros no metales</strong></span>
+              <span class="halogenos"><strong>Halógenos</strong></span>
+              <span class="gasesNobles"><strong>Gases Nobles</strong></span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Creado <small>por</small> Roniell Pérez</p>
+    </footer>
+  </body>
+</html>

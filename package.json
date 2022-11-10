@@ -1,0 +1,22 @@
+{
+  "name": "periodictable",
+  "version": "1.0.0",
+  "description": "Periodic Table",
+  "main": "app.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Roniell Perez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
